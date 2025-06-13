@@ -6,9 +6,11 @@ import {
   Switch,
   FormControlLabel,
   Box,
-  Divider
+  Divider,
+  Card as MuiCard,
+  CardContent,
+  CardHeader
 } from '@mui/material';
-import Card from '../components/common/Card';
 
 const Settings: React.FC = () => {
   const [settings, setSettings] = React.useState({
@@ -38,8 +40,9 @@ const Settings: React.FC = () => {
       </Typography>
 
       <form onSubmit={handleSubmit}>
-        <Card title="일반 설정">
-          <Box sx={{ p: 2 }}>
+        <MuiCard>
+          <CardHeader title="일반 설정" />
+          <CardContent>
             <TextField
               fullWidth
               label="사이트 이름"
@@ -61,11 +64,12 @@ const Settings: React.FC = () => {
               <option value="ko">한국어</option>
               <option value="en">English</option>
             </TextField>
-          </Box>
-        </Card>
+          </CardContent>
+        </MuiCard>
 
-        <Card title="알림 설정" sx={{ mt: 3 }}>
-          <Box sx={{ p: 2 }}>
+        <MuiCard sx={{ mt: 3 }}>
+          <CardHeader title="알림 설정" />
+          <CardContent>
             <FormControlLabel
               control={
                 <Switch
@@ -75,11 +79,12 @@ const Settings: React.FC = () => {
               }
               label="이메일 알림"
             />
-          </Box>
-        </Card>
+          </CardContent>
+        </MuiCard>
 
-        <Card title="테마 설정" sx={{ mt: 3 }}>
-          <Box sx={{ p: 2 }}>
+        <MuiCard sx={{ mt: 3 }}>
+          <CardHeader title="테마 설정" />
+          <CardContent>
             <FormControlLabel
               control={
                 <Switch
@@ -89,8 +94,8 @@ const Settings: React.FC = () => {
               }
               label="다크 모드"
             />
-          </Box>
-        </Card>
+          </CardContent>
+        </MuiCard>
 
         <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
           <Button
